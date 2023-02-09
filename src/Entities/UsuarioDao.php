@@ -14,6 +14,23 @@
             $this->engine = $engine;
         }
 
+        public function addUsr(Usuario $usr) 
+        {
+            $nome = $usr->getNome();
+            $email = $usr->getEmail();
+            $endereco = $usr->getEndereco();
+            $senha = $usr->getSenha();
+
+            $resultado = $this->engine->insert($this->tableName, [
+                "nome" => "$nome",
+                "email" => "$email",
+                "endereco" => "$endereco",
+                "senha" => "$senha"
+            ]);
+
+            return $resultado;
+        }
+
         public function getUsrById($id) 
         {
             $usr = new Usuario();
@@ -37,8 +54,6 @@
 
         public function getAllUsr() 
         {   
-            
-
             $dados = $this->engine->select($this->tableName, ["*"], "");
 
             if($dados != false) {
@@ -56,7 +71,6 @@
                 }
 
                 return $usuarios;
-                
             }
 
             return false;
@@ -75,8 +89,7 @@
                 "nome" => "$nome",
                 "email" => "$email",
                 "senha" => "$senha",
-                "endereco" => "$endereco",
-
+                "endereco" => "$endereco"
             ],
             "id = $id");
 

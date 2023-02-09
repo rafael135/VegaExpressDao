@@ -9,13 +9,13 @@
 
     $usrs = $usrDao->getAllUsr();
 
-    require "src/paginas/header.php";
+    require "src/paginas/default/header.php";
 
 
 ?>
     <body>
 <?php
-    require "src/paginas/navbar.php";
+    require "src/paginas/default/navbar.php";
 ?>
 
 <?php 
@@ -30,5 +30,5 @@
 
 
 <?php
-    require "src/paginas/footer.php";
+    require "src/paginas/default/footer.php";
 ?>

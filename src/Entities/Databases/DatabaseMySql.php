@@ -19,11 +19,11 @@
             $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->databaseName", $this->usuario, $this->senha);
         }
 
+
         private function checkWhere($where) 
         {
             return strlen($where) ? " WHERE $where" : "";
         }
-
 
         public function select($table, array $fields, $where)
         {
@@ -59,9 +59,34 @@
             return false;
         }
 
-        public function insert($table ,$fields, $where)
+        public function insert($table ,$fields)
         {
-            $where = $this->checkWhere($where);
+            $values = array_values($fields);
+            $keys = array_keys($fields);
+            
+            
+            $queryStr = "INSERT INTO $table (" . implode(", ", $keys) . ") VALUES (";
+
+            for($i = 0; $i < count($values); $i++) {
+                $queryStr .= "'$values[$i]'";
+
+                if($i + 1 <= count($values)) {
+                    $queryStr .= ", ";
+                }
+            }
+            $queryStr .= ")";
+
+            $sql = $this->pdo->prepare($queryStr);
+
+            $resultado = false;
+
+            try {
+                $resultado = $sql->execute();
+            } catch(PDOException $e) {
+                return false;
+            }
+
+            return $resultado;
         }
 
         public function update($table, $fields, $where)

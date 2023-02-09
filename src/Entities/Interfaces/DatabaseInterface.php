@@ -3,7 +3,7 @@
 
     interface DatabaseInterface {
         public function select($table, array $fields, $where);
-        public function insert($table, array $fields, $where);
+        public function insert($table, array $fields);
         public function update($table, array $fields, $where);
         public function delete($table, $where);
     }
