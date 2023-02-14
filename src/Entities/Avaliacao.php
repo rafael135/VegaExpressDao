@@ -1,15 +1,15 @@
-<?php 
+<?php
     namespace Entities;
 
-use DateTime;
+    use DateTime;
 
-    class Produto {
+    class Avaliacao {
         private $id;
-        private $idAutor;
+        private $idUsuario;
         private $titulo;
-        private $preco;
-        private $imagens;
-        private $descricao;
+        private $corpo;
+        private $likes;
+        private $deslikes;
         private DateTime $dataCriacao;
 
         public function __construct()
@@ -25,12 +25,12 @@ use DateTime;
             $this->id = $id;
         }
 
-        public function getIdAutor() {
-            return $this->idAutor;
+        public function getIdUsuario() {
+            return $this->idUsuario;
         }
 
-        public function setIdAutor($id) {
-            $this->idAutor = $id;
+        public function setIdUsuario($id) {
+            $this->idUsuario = $id;
         }
 
         public function getTitulo() {
@@ -41,28 +41,28 @@ use DateTime;
             $this->titulo = $titulo;
         }
 
-        public function getPreco() {
-            return round($this->preco, 2);
+        public function getCorpo() {
+            return $this->corpo;
         }
 
-        public function setPreco($preco) {
-            $this->preco = $preco;
+        public function setCorpo($corpo) {
+            $this->corpo = $corpo;
         }
 
-        public function getImagens() {
-            return $this->imagens;
+        public function getLikes() {
+            return $this->likes;
         }
 
-        public function setImagens($imagens) {
-            $this->imagens = $imagens;
+        public function setLikes($likes) {
+            $this->likes = $likes;
         }
 
-        public function getDescricao() {
-            return $this->descricao;
+        public function getDeslikes() {
+            return $this->deslikes;
         }
 
-        public function setDescricao($descricao) {
-            $this->descricao = $descricao;
+        public function setDeslikes($deslikes) {
+            $this->deslikes = $deslikes;
         }
 
         public function getDataCriacao() {
@@ -73,4 +73,4 @@ use DateTime;
             $this->dataCriacao = new DateTime($data);
         }
     }
-?>
+?>  

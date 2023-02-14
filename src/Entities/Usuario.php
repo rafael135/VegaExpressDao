@@ -7,6 +7,7 @@
         private string $email;
         private string $endereco;
         private string $senha;
+        private string $cpf;
 
         public function getId() {
             return $this->id;
@@ -46,6 +47,14 @@
 
         public function setSenha($senha) {
             $this->senha = $senha;
+        }
+
+        public function getCpf() {
+            return $this->cpf;
+        }
+
+        public function setCpf($cpf) {
+            $this->cpf = $cpf;
         }
     }
 ?>

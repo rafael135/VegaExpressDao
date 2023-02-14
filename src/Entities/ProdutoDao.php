@@ -12,6 +12,33 @@
             $this->engine = $engine;
         }
 
+        public function getAllProdutos($order = null) {
+            $produtos = $this->engine->select($this->tableName, ["*"], "");
+
+
+            if($produtos != false) {
+                $produtosRetorno = [];
+
+                foreach($produtos as $produto) {
+                    $newProduto = new Produto();
+                    $newProduto->setId($produto["id"]);
+                    $newProduto->setIdAutor($produto["idAutor"]);
+                    $newProduto->setTitulo($produto["titulo"]);
+                    $newProduto->setImagens($produto["imagens"]);
+                    $newProduto->setPreco($produto["preco"]);
+                    $newProduto->setDescricao($produto["descricao"]);
+                    $newProduto->setDataCriacao($produto["dataCriacao"]);
+
+                    array_push($produtosRetorno, $newProduto);
+                }
+
+                
+                return $produtosRetorno;
+            } else {
+                return [];
+            }
+        }
+
         public function addProduto(Produto $produto) {
             $idAutor = $produto->getIdAutor();
             $titulo = $produto->getTitulo();

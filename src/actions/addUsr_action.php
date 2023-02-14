@@ -7,23 +7,21 @@
 
     $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-    $cep = filter_input(INPUT_POST, "cep");
-    $bairro = filter_input(INPUT_POST, "bairro");
-    $numero = filter_input(INPUT_POST, "numero", FILTER_VALIDATE_INT);
-    $endereco = "$cep;$bairro;$numero";
-    $endereco = filter_var($endereco, FILTER_SANITIZE_SPECIAL_CHARS);
+    $cpf = filter_input(INPUT_POST, "cpf", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+    echo $cpf;
+    exit;
     $senha = filter_input(INPUT_POST, "senha", FILTER_SANITIZE_SPECIAL_CHARS);
 
 
-    $verificao = $nome && $email && $cep && $bairro && $numero && $endereco && $senha;
+    $verificao = $nome && $email && $senha;
     if($verificao == true) {
         $senha = password_hash($senha, PASSWORD_DEFAULT);
 
         $usr = new Usuario();
         $usr->setNome($nome);
+        $usr->setCpf($cpf);
         $usr->setEmail($email);
-        $usr->setEndereco($endereco);
         $usr->setSenha($senha);
 
         $dbMySql = new DatabaseMySql();

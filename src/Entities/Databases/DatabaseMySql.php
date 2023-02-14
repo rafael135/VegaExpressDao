@@ -25,7 +25,7 @@
             return strlen($where) ? " WHERE $where" : "";
         }
 
-        public function select($table, array $fields, $where)
+        public function select($table, array $fields, $where, $order = null)
         {
             $where = $this->checkWhere($where);
 
