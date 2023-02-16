@@ -8,6 +8,7 @@
         private string $endereco;
         private string $senha;
         private string $cpf;
+        private string $token;
 
         public function getId() {
             return $this->id;
@@ -55,6 +56,14 @@
 
         public function setCpf($cpf) {
             $this->cpf = $cpf;
+        }
+
+        public function getToken() {
+            return $this->token;
+        }
+
+        public function setToken($token) {
+            $this->token = $token;
         }
     }
 ?>

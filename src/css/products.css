@@ -1,0 +1,31 @@
+.card-product {
+    width: 300px;
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+}
+
+.card-product .card-img-top {
+    height: 300px;
+}
+
+.product-price {
+    padding: 6px 12px;
+    font-size: 20px;
+    background-color: #1b79d1;
+    color: #FFF;
+    border-radius: 6px;
+    max-width: max-content;
+    margin-left: 4px;
+}
+
+.product-title {
+    margin-top: 2px;
+    margin-left: 4px;
+    margin-bottom: 2px;
+    color: #FFF;
+    text-align: justify;
+}
+
+.container-inicial a {
+    text-decoration: none;
+}

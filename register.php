@@ -12,7 +12,7 @@
 
         <div class="container-fluid container-loginPage d-flex justify-content-center align-items-center">
             <div class="col-12 d-flex justify-content-center align-items-center">
-                <?php require("src/paginas/loginPages/login.php"); ?>
+                <?php require("src/paginas/loginPages/register.php"); ?>
             </div>
         </div>
 

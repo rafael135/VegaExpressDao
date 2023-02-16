@@ -70,7 +70,7 @@
             for($i = 0; $i < count($values); $i++) {
                 $queryStr .= "'$values[$i]'";
 
-                if($i + 1 <= count($values)) {
+                if($i + 1 < count($values)) {
                     $queryStr .= ", ";
                 }
             }
@@ -106,7 +106,7 @@
             for($i = 0; $i < count($keys); $i++) {
                 $queryStr .= "$keys[$i] = '$values[$i]'";
 
-                if($i + 1 <= count($keys)) {
+                if($i + 1 < count($keys)) {
                     $queryStr .= ", ";
                 }
             }

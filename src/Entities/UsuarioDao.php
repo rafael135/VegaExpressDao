@@ -18,17 +18,46 @@
         {
             $nome = $usr->getNome();
             $email = $usr->getEmail();
-            $endereco = $usr->getEndereco();
             $senha = $usr->getSenha();
 
-            $resultado = $this->engine->insert($this->tableName, [
-                "nome" => "$nome",
-                "email" => "$email",
-                "endereco" => "$endereco",
-                "senha" => "$senha"
-            ]);
 
-            return $resultado;
+            if(!empty($nome) && !empty($email) && !empty($senha)) {
+                $hash = password_hash($senha, PASSWORD_DEFAULT);
+                $token = md5(time() . rand(0, 9999) . time());
+
+                $resultado = $this->engine->insert($this->tableName, [
+                    "nome" => $nome,
+                    "email" => $email,
+                    "senha" => $hash,
+                    "token" => $token
+                ]);
+
+                if($resultado == true) {
+                    return $token;
+                } else {
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        public function getUsrByToken($token) {
+            $usr = new Usuario();
+
+            $dados = $this->engine->select($this->tableName, ["*"], "token = '$token'");
+
+            if($dados != false) {
+                $usr->setId($dados[0]["id"]);
+                $usr->setNome($dados[0]["nome"]);
+                $usr->setEmail($dados[0]["email"]);
+                $usr->setCpf($dados[0]["cpf"]);
+                $usr->setEndereco($dados[0]["endereco"]);
+
+                return $usr;
+            } else {
+                return false;
+            }
         }
 
         public function getUsrById($id) 
@@ -111,6 +140,26 @@
             } else 
             {
                 return true;
+            }
+        }
+
+        public function login($email, $senha) {
+            $usrData = $this->engine->select($this->tableName, ["*"], "email = '$email'");
+            $token = md5(time() . rand(0, 9999) . time());
+
+            if(password_verify($senha, $usrData[0]["senha"])) {
+                $alt = $this->engine->update($this->tableName, [
+                    "token" => $token
+                ], "id = " . $usrData[0]["id"]);
+
+                if($alt == true) {
+                    return $token;
+                } else {
+                    return false;
+                }
+                
+            } else {
+                return false;
             }
         }
     }

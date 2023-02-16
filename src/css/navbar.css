@@ -39,6 +39,14 @@ nav .navbar-nav .nav-item:hover .bi {
     color: #FFF;
 }
 
+#btn-user-sideBar:hover i {
+    color: #FFF !important;
+}
+
+#btn-user-sideBar i {
+    font-size: 32px !important;
+}
+
 #asideUser-menu {
     z-index: 999;
     display: flex;
@@ -55,4 +63,30 @@ nav .navbar-nav .nav-item:hover .bi {
     width: 300px;
     background-color: rgb(43, 46, 49) !important;
     border-bottom-left-radius: 12px;
+}
+
+#dropdownUser1::after {
+    transition: all ease 200ms;
+}
+
+#dropdownUser1[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+ul.nav .nav-link {
+    
+}
+
+ul.nav .nav-link.link-bi {
+    padding-left: 12px !important;
+}
+
+ul.nav .nav-link:hover {
+    background-color: #1b79d1;
+    color: #FFF;
+}
+
+ul.nav .nav-link.active {
+    background-color: #0c59bd;
+    color: #FFF;
 }
