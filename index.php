@@ -8,6 +8,8 @@
 <?php
     require "src/paginas/default/navbar.php";
 
+    require "src/paginas/default/searchBar.php";
+
     require "src/paginas/inicial.php";
 ?>
 

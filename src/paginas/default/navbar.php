@@ -6,7 +6,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="">VegaExpress</a>
+            <a class="navbar-brand" href="index.php">VegaExpress</a>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <?php if($loggedUser != false): ?>

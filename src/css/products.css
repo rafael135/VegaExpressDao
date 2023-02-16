@@ -8,6 +8,10 @@
     height: 300px;
 }
 
+.card-product .card-body {
+    background-color: rgb(117, 120, 123);
+}
+
 .product-price {
     padding: 6px 12px;
     font-size: 20px;

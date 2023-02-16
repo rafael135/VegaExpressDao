@@ -145,6 +145,11 @@
 
         public function login($email, $senha) {
             $usrData = $this->engine->select($this->tableName, ["*"], "email = '$email'");
+
+            if(count($usrData) == 0) {
+                return false;
+            }
+
             $token = md5(time() . rand(0, 9999) . time());
 
             if(password_verify($senha, $usrData[0]["senha"])) {
