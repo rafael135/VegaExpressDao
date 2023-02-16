@@ -19,7 +19,7 @@
                 <div class="btn-searchBar col-md-2 col-lg-1 p-0">
                     <button class="btn btn-primary" type="button" id="btn-collapse" data-bs-toggle="collapse" data-bs-target="#filtersCollapse"
                         aria-expanded="false" aria-controls="filtersCollapse">
-                        <i class="bi bi-arrow-bar-down fs-3"></i>
+                        <i class="bi bi-chevron-compact-down fs-4"></i>
                     </button>
                 </div>
             </div>

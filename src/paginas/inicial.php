@@ -6,7 +6,9 @@
     $listProdutos = $produtoDao->getAllProdutos();
 ?>
 
-<div class="container-fluid container-inicial mt-3 d-flex flex-wrap flex-row justify-content-evenly">
+<div class="container-fluid container-inicial mt-3 mx-4">
+    <div class="title-inicial">Últimos Adicionados</div>
+    <div class="d-flex flex-wrap flex-row justify-content-evenly m-0 m-3 p-0">
     <?php foreach($listProdutos as $produto): ?>
         <a href="produto.php?id=<?=$produto->getId();?>">
             <div class="card card-product">
@@ -18,4 +20,5 @@
             </div>
         </a>
     <?php endforeach; ?>
+    </div>
 </div>
