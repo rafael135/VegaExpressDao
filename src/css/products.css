@@ -133,3 +133,47 @@ body {
     height: 58px;
     width: 100%;
 }
+
+
+
+.card-products {
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.card-products img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+.card-products h2 {
+    text-align: center;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+.card-products p {
+    text-align: center;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+.card-products span {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+.card-products span:hover {
+    background-color: #555;
+  }

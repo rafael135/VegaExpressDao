@@ -12,15 +12,13 @@
     <div class="title-inicial">Últimos Adicionados</div>
     <div class="d-flex flex-wrap flex-row justify-content-evenly m-0 m-3 p-0">
     <?php foreach($listProdutos as $produto): ?>
-        <a href="produto.php?id=<?=$produto->getId();?>">
-            <div class="card card-product">
-                <img class="card-img-top img-fluid" src="src/img/produto-exemplo.jpg" alt="">
-                <div class="card-body p-1 border-top">
-                    <div class="product-price">R$ <?=str_replace(".", ",", $produto->getPreco());?></div>
-                    <div class="product-title"><?=$produto->getTitulo();?></div>
-                </div>
-            </div>
-        </a>
+        <div class="card-products">
+            <a href="produto.php?id=<?=$produto->getId();?>">
+                <img src="https://via.placeholder.com/300x200" alt="Produto 1">
+                <h2><?=$produto->getTitulo();?></h2>
+                <span>R$ <?=$produto->getPreco();?></span>
+            </a>
+        </div>
     <?php endforeach; ?>
     </div>
 </div>
