@@ -41,11 +41,21 @@ form .form-legend {
 
 .search-bar #btn-collapse {
     border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.search-bar #btn-collapse.opened {
+    border-bottom-right-radius: 0;
 }
 
 .search-bar #searchInput {
     border-radius: 0;
     border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.search-bar #searchInput.opened {
+    border-bottom-left-radius: 0;
 }
 
 .search-bar .btn-searchBar {
@@ -63,7 +73,7 @@ form .form-legend {
 }
 
 .search-bar .btn-searchBar .btn:hover {
-    background-color: #CCC;
+    background-color: #DDD;
 }
 
 .search-bar .btn-searchBar .btn[aria-expanded="false"] i::before {

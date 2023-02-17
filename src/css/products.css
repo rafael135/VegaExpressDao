@@ -13,9 +13,9 @@
 }
 
 .product-price {
-    padding: 6px 12px;
+    padding: 2px 12px;
     font-size: 20px;
-    background-color: #1b79d1;
+    background-color: transparent;
     color: #FFF;
     border-radius: 6px;
     max-width: max-content;
@@ -56,4 +56,68 @@
 .container-usrProduct {
     background-color: rgba(202, 205, 208, 0.9);
     width: 90%;
+}
+
+.cards-usrProducts {
+    background-color: #f8f9fa;
+    
+}
+
+.usrProducts-options {
+    background-color: rgb(52, 58, 64);
+}
+
+.usrProducts-options .btn-addProduct {
+    color: #0d6efd;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    transition: all ease 150ms;
+}
+
+.usrProducts-options .btn-addProduct:hover {
+    background-color: #dddedf;
+}
+
+.card-usrProduct-link {
+    text-decoration: none;
+}
+.card-usrProduct-link .card-title,
+.card-usrProduct-link .card-text {
+    transition: all ease 150ms;
+    word-wrap: break-word;
+}
+
+.card-usrProduct-link:hover .card-title,
+.card-usrProduct-link:hover .card-text {
+    color: rgba(215, 215, 215, 1);
+}
+
+.card-usrProduct-link:hover .card.card-productUsr .card-body {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.card.card-productUsr {
+    border: none;
+
+}
+.card.card-productUsr .card-img-top {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.card.card-productUsr .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    flex-grow: 1;
+    aspect-ratio: 1/1;
+    margin-top: -100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    transition: all ease 150ms;
+}
+
+.container-usrProduct .btn-searchBar button {
+    height: 58px;
+    width: 100%;
 }

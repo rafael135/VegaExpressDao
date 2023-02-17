@@ -4,6 +4,8 @@
     $produtoDao = new ProdutoDao($engine);
 
     $listProdutos = $produtoDao->getAllProdutos();
+
+    /* src img produto: public_assets/<?=$produto->getIdAutor();?>/produtos/<?=$produto->getId();?>/<?=$produto->getImagens()[0];?> */
 ?>
 
 <div class="container-fluid container-inicial mt-3 mx-4">
@@ -12,7 +14,7 @@
     <?php foreach($listProdutos as $produto): ?>
         <a href="produto.php?id=<?=$produto->getId();?>">
             <div class="card card-product">
-                <img class="card-img-top img-fluid" src="public_assets/<?=$produto->getIdAutor();?>/produtos/<?=$produto->getId();?>/<?=$produto->getImagens()[0];?>" alt="">
+                <img class="card-img-top img-fluid" src="src/img/produto-exemplo.jpg" alt="">
                 <div class="card-body p-1 border-top">
                     <div class="product-price">R$ <?=str_replace(".", ",", $produto->getPreco());?></div>
                     <div class="product-title"><?=$produto->getTitulo();?></div>
