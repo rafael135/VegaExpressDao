@@ -20,28 +20,36 @@
 
                         <div class="col-lg-10 d-flex justify-content-center align-items-center p-0 m-0">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-addProduct rounded-0 w-100" data-bs-toggle="modal" data-bs-target="#modalAddProduto">
+                            <button type="button" class="btn btn-primary btn-addProduct rounded-0 w-100"
+                                data-bs-toggle="modal" data-bs-target="#modalAddProduto">
                                 <i class="bi bi-plus-circle fs-4"></i>
                             </button>
                         </div>
                     </div>
                     <div class="d-flex flex-grow-1 justify-content-center fw-semibold fs-5 align-items-end">
-                        <div class="usrProduct-qte">Quantidade de produtos: <span class="badge bg-primary" id="qte-products">9</span></div>
+                        <div class="usrProduct-qte">Quantidade de produtos: <span class="badge bg-primary"
+                                id="qte-products"><?=$produtos == false ? "0" : count($produtos);?></span></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 cards-usrProducts p-2">
+            <div
+                class="col-lg-9 cards-usrProducts d-flex flex-wrap justify-content-evenly align-content-start p-2 <?php if($produtos == false){ echo "justify-content-center align-items-center"; } ?>">
+                <?php if($produtos != false): ?>
+                <?php foreach($produtos as $produto): ?>
                 <div class="col-lg-2 m-0 p-0">
-                    <a class="card-usrProduct-link" href="produto.php?id=">
-                        <div class="card card-productUsr text-white bg-white rounded-0">
-                            <img class="card-img-top" src="src/img/produto-exemplo.jpg" alt="Title">
-                            <div class="card-body">
-                                <h5 class="card-title">Title dasdasd</h4>
-                                <p class="card-text fs-6">R$ 50,00</p>
-                            </div>
+                    <div class="card card-productUsr text-white bg-white rounded-0 mx-2 mb-2">
+                        <img class="card-img-top" src="src/img/produto-exemplo.jpg" alt="Title">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate"><?=$produto->getTitulo();?></h5>
+                                <p class="card-text fs-6">R$ <?=number_format($produto->getPreco(), 2, ",", ".");?></p>
+                                <a class="card-usrProduct-link stretched-link" href="produto.php?id=<?=$produto->getId();?>"></a>
                         </div>
-                    </a>
+                    </div>
                 </div>
+                <?php endforeach; ?>
+                <?php else: ?>
+                <h2 class="text-black fs-2">Você não possui nenhum produto</h2>
+                <?php endif; ?>
             </div>
         </div>
     </div>

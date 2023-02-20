@@ -1,6 +1,6 @@
 <div class="container-fluid p-0 mt-4 mb-4 px-4">
     <div class="search-bar">
-        <form class="p-0 m-0">
+        <form class="p-0 m-0" method="get" action="pesquisa.php">
             <div class="d-flex row align-items-center m-0">
                 <div class="col-md-8 col-lg-10 p-0">
                     <div class="form-floating">
@@ -30,16 +30,25 @@
                             <div class="searchBar-input-label d-inline-flex mx-2">Filtrar por data:</div>
                             <div class="btn-group d-inline-flex mx-2" role="group"
                                 aria-label="Vertical radio toggle button group">
-                                <input type="radio" class="btn-check" value="new" name="radioOrderDate" id="radioOrderDate1"
+                                <input type="radio" class="btn-check" value="DESC" name="OrderDate" id="radioOrderDate1"
                                     autocomplete="off">
                                 <label class="btn btn-primary" for="radioOrderDate1">Mais atual</label>
-                                <input type="radio" class="btn-check" value="ignore" name="radioOrderDate" id="radioOrderDate2"
+                                <input type="radio" class="btn-check" value="ignore" name="OrderDate" id="radioOrderDate2"
                                     autocomplete="off" checked>
                                 <label class="btn btn-primary" for="radioOrderDate2">Ignorar</label>
-                                <input type="radio" class="btn-check" value="old" name="radioOrderDate" id="radioOrderDate3"
+                                <input type="radio" class="btn-check" value="ASC" name="OrderDate" id="radioOrderDate3"
                                     autocomplete="off">
                                 <label class="btn btn-primary" for="radioOrderDate3">Mais antiga</label>
                             </div>
+                        </div>
+                        <div class="col-lg-4 p-3 d-flex flex-column">
+                            <label class="form-label" for="qteItems">Quantidade de produtos por página:</label>
+                            <select class="form-select" id="qteItems" name="qteItems">
+                                <option selected value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                            </select>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="index.php">VegaExpress</a>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-lg-0 ms-lg-auto mx-md-auto mb-lg-0">
                 <li class="nav-item">
                     <?php if($loggedUser != false): ?>
                         <a href="" id="btn-user-sideBar" class="nav-link">
@@ -23,6 +23,8 @@
         </div>
 
     </div>
+    
+
 </nav>
 
 <aside id="asideUser-menu">

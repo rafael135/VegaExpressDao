@@ -42,7 +42,7 @@ use DateTime;
         }
 
         public function getPreco() {
-            return round($this->preco, 2);
+            return $this->preco;
         }
 
         public function setPreco($preco) {

@@ -20,17 +20,29 @@
         }
 
 
-        private function checkWhere($where) 
+
+        public function getEngine() {
+            return $this->pdo;
+        }
+
+        private static function checkWhere($where) 
         {
             return strlen($where) ? " WHERE $where" : "";
         }
 
-        public function select($table, array $fields, $where, $order = null)
+        private static function checkOrder($order) {
+            return (is_array($order) && $order != null) ? " ORDER BY " . $order[0] . " $order[1]" : "";
+        }
+
+        public function select($table, array $fields, $where, $order = null, $limit = null)
         {
-            $where = $this->checkWhere($where);
+            $where = self::checkWhere($where);
+            $order = self::checkOrder($order);
 
             $queryStr = "SELECT " . implode(",", $fields) . " FROM $table" . $where;
             
+            $queryStr .= $order;
+
             $sql = $this->pdo->prepare($queryStr);
 
             if($sql != false) {
