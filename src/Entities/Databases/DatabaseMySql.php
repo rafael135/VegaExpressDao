@@ -34,14 +34,25 @@
             return (is_array($order) && $order != null) ? " ORDER BY " . $order[0] . " $order[1]" : "";
         }
 
+        private static function checkLimit($limit) {
+            if(is_array($limit)) {
+                $inicio = $limit[0];
+                $fim = $limit[1];
+
+                return " LIMIT $inicio, $fim";
+                
+            } else {
+                return "";
+            }
+        }
+
         public function select($table, array $fields, $where, $order = null, $limit = null)
         {
             $where = self::checkWhere($where);
             $order = self::checkOrder($order);
+            $limit = self::checkLimit($limit);
 
-            $queryStr = "SELECT " . implode(",", $fields) . " FROM $table" . $where;
-            
-            $queryStr .= $order;
+            $queryStr = "SELECT " . implode(",", $fields) . " FROM $table" . $where . $order . $limit;
 
             $sql = $this->pdo->prepare($queryStr);
 

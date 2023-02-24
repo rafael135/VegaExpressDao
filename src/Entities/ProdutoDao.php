@@ -145,18 +145,21 @@ use Entities\Interfaces\DatabaseInterface;
             return $resultado;
         }
 
-        public function getProductsBySearch($searchTerm, $orderDate, $qteItems) {
+        public function getProductsBySearch($searchTerm, $orderDate, $limit) {
             $where = "titulo LIKE '%$searchTerm%'";
             $order = [];
+            $limiter = [];
 
             if($orderDate != "ignore") {
                 $order[0] = "dataCriacao";
                 $order[1] = $orderDate;
             }
 
+            
+
             $products = [];
 
-            $ProductData = $this->engine->select($this->tableName, ["*"], $where, $order);
+            $ProductData = $this->engine->select($this->tableName, ["*"], $where, $order, $limit);
 
             if($ProductData != false) {
                 foreach($ProductData as $product) {
